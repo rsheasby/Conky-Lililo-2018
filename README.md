@@ -1,6 +1,6 @@
 # Conky lililo 2018
 
-![Screenshot](https://i.imgur.com/lAwxc4J.png)
+![Screenshot](https://i.imgur.com/VgJZnut.png)
 
 ## Disclaimer:
 
