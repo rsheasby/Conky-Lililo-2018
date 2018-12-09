@@ -1,5 +1,7 @@
 # Conky lililo 2018
 
+![Screenshot](https://i.imgur.com/lAwxc4J.png)
+
 ## Disclaimer:
 
 I did not create this from scratch. It's a modified version of iceman358's "Conky lililo", which you can find [here](https://www.deviantart.com/iceman358/art/Conky-lililo-356227018). His hasn't been updated in years, so I remade it, keeping the original look and feel but fixing the weather and other minor glitches.
