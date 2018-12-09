@@ -100,7 +100,6 @@ ${alignc 19}${font Arial Black:size=18}${exec LC_TIME=en_US.UTF-8 date "+%I:%M %
 ${voffset 2}${alignc}${time %A, %d %B %Y}
 
 ${if_existing /proc/net/route <net-interface>} WEATHER ${hr 2}
-
 ${voffset -15}${execi 120 "bash -c 'cd ~/.weather && ./darksky.php > weather.new && mv -f weather.new weather'"}
 ${voffset +5}${goto 100}${font Arial Black:size=25}${execpi 15 sed -n '3p' $HOME/.weather/weather}°C${voffset -5}${goto 5}${font conkyweather:size=50}${execpi 15 sed -n '2p' $HOME/.weather/weather}${font Arial Black:size=18}${voffset -14}${goto 120}${voffset 30}${goto 185}${font conkyweather:size=30}${voffset 20}${goto 5}${execpi 15 sed -n '4p' $HOME/.weather/weather}${goto 75}${execpi 15 sed -n '8p' $HOME/.weather/weather}${goto 150}${execpi 15 sed -n '12p' $HOME/.weather/weather}${voffset 12}${goto 5}${font Arial Black:size=10}${execpi 15 sed -n '5p' $HOME/.weather/weather}°/${execpi 15 sed -n '6p' $HOME/.weather/weather}°${goto 75}${execpi 15 sed -n '9p' $HOME/.weather/weather}°/${execpi 15 sed -n '10p' $HOME/.weather/weather}°${goto 150}${execpi 15 sed -n '13p' $HOME/.weather/weather}°/${execpi 15 sed -n '14p' $HOME/.weather/weather}°${voffset 12}${goto 8}${font Arial Black:size=10}${execpi 15 sed -n '7p' $HOME/.weather/weather}${goto 78}${execpi 15 sed -n '11p' $HOME/.weather/weather}${goto 155}${execpi 15 sed -n '15p' $HOME/.weather/weather}${font}
 
