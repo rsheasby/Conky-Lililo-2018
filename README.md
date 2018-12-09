@@ -44,3 +44,7 @@ Just clone this repo into ~/.weather:
 ### Autostart:
 
 See [here](https://wiki.archlinux.org/index.php/autostarting) for a full guide on autostarting, but the basic idea is just to run `conky -q -d -c ~/.weather/conkyrc` on startup. It's a good idea to run the darksky.php script first too so that the weather information will already be up-to-date when conky starts. My startup command looks like this: `bash -c "~/.weather/darksky.php > ~/.weather/weather; conky -q -d -c ~/.weather/conkyrc"`
+
+## Licensing?
+
+This project is licensed under the MIT license. This means you can do whatever you want with the software including modify, share, sell, etc... so long as you keep the copyright notice so that I still get some credit for the work.
