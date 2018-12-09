@@ -1,0 +1,114 @@
+# .conkyrc by fabsh <fabsh@lamerk.org>
+# Based on ideas and code from the CunchBang Linux forums at http://crunchbanglinux.org
+# v. 1.0
+
+# Use Xft?
+use_xft yes
+xftfont DejaVu Sans:size=8
+xftalpha 1
+text_buffer_size 2048
+
+# Update interval in seconds
+update_interval 0.1
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+own_window yes
+own_window_transparent yes
+#own_window_type override
+own_window_type desktop
+#own_window_type normal #use this if you want a nice shadow to appear around conky
+
+# If own_window is yes, these window manager hints may be used
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 200 0
+maximum_width 200
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+stippled_borders 0
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color 002030
+#default_shade_color black
+#default_outline_color grey
+own_window_colour 002030
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 18
+gap_y -12
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 10
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about? This only affects certain objects.
+use_spacer none
+
+temperature_unit celsius
+
+TEXT
+${voffset 26}SYSTEM ${hr 2}
+${alignc +15}${font Arial Black:size=14}${nodename}${font}
+${font OpenLogos:size=16}B${font} Kernel: ${alignr}${kernel}
+${font StyleBats:size=16}A${font} CPU1: ${cpu cpu1}% ${alignr}${cpubar cpu1 8,60}
+${font StyleBats:size=16}A${font} CPU2: ${cpu cpu2}% ${alignr}${cpubar cpu2 8,60}
+${font StyleBats:size=16}g${font} RAM: $mem ${alignr}${membar 8,60}
+${font StyleBats:size=16}j${font} SWAP: $swap ${alignr}${swapbar 8,60}
+${font StyleBats:size=16}q${font} Uptime: ${alignr}${uptime}
+
+DATE ${hr 2}
+${alignc 19}${font Arial Black:size=18}${exec LC_TIME=en_US.UTF-8 date "+%I:%M %p"}${font}
+${voffset 2}${alignc}${time %A, %d %B %Y}
+
+${if_existing /proc/net/route <net-interface>} WEATHER ${hr 2}
+
+${voffset -15}${execi 120 "bash -c 'cd ~/.weather && ./darksky.php > weather.new && mv -f weather.new weather'"}
+${voffset +5}${goto 100}${font Arial Black:size=25}${execpi 15 sed -n '3p' $HOME/.weather/weather}°C${voffset -5}${goto 5}${font conkyweather:size=50}${execpi 15 sed -n '2p' $HOME/.weather/weather}${font Arial Black:size=18}${voffset -14}${goto 120}${voffset 30}${goto 185}${font conkyweather:size=30}${voffset 20}${goto 5}${execpi 15 sed -n '4p' $HOME/.weather/weather}${goto 75}${execpi 15 sed -n '8p' $HOME/.weather/weather}${goto 150}${execpi 15 sed -n '12p' $HOME/.weather/weather}${voffset 12}${goto 5}${font Arial Black:size=10}${execpi 15 sed -n '5p' $HOME/.weather/weather}°/${execpi 15 sed -n '6p' $HOME/.weather/weather}°${goto 75}${execpi 15 sed -n '9p' $HOME/.weather/weather}°/${execpi 15 sed -n '10p' $HOME/.weather/weather}°${goto 150}${execpi 15 sed -n '13p' $HOME/.weather/weather}°/${execpi 15 sed -n '14p' $HOME/.weather/weather}°${voffset 12}${goto 8}${font Arial Black:size=10}${execpi 15 sed -n '7p' $HOME/.weather/weather}${goto 78}${execpi 15 sed -n '11p' $HOME/.weather/weather}${goto 155}${execpi 15 sed -n '15p' $HOME/.weather/weather}${font}
+
+
+${voffset -10}NETWORK ${hr 2}
+
+${voffset -6}${font PizzaDude Bullets:size=14}O${font} Up: ${upspeed <net-interface>}${alignr}${upspeedgraph <net-interface> 8,60 black black}
+${voffset 4}${font PizzaDude Bullets:size=14}U${font} Down: ${downspeed <net-interface>}${alignr}${downspeedgraph <net-interface> 8,60 black black}
+${voffset 4}${font PizzaDude Bullets:size=14}N${font} Total Upload: ${alignr}${totalup <net-interface>}
+${voffset 4}${font PizzaDude Bullets:size=14}T${font} Total Download: ${alignr}${totaldown <net-interface>}
+$endif
