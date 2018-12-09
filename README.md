@@ -22,7 +22,7 @@ To install the fonts, simply find, download, and copy the font files into `~/.fo
 ### Install:
 
 Just clone this repo into ~/.weather:
-`git clone [repo] ~/.weather`
+`git clone https://gitlab.com/rsheasby/conky-lililo-2018.git ~/.weather`
 
 ### Things you **NEED** to configure:
 
