@@ -30,7 +30,7 @@ Just clone this repo into ~/.weather:
 
 * Home coordinates: `darksky.php:80`
 * Dark Sky API Key: `darksky.php:83`
-* Primary network interface: `conkyrc:103 and conkyrc:111-114` (replace `<net-interface>` with your interface such as `wlan0`)
+* Primary network interface: `conkyrc:102 and conkyrc:109-112` (replace `<net-interface>` with your interface such as `wlan0`)
 	
 ### Things you *probably* want to configure:
 
@@ -39,8 +39,8 @@ Just clone this repo into ~/.weather:
 * Network update averaging: `conkyrc:78`
 * Text color: `conkyrc:50 and conkyrc:53`
 * Alignment: `conkyrc:56-59 and conkyrc:63-64`
-* Kernel icon: `conkyrc:92` (change OpenLogos character)
-* Time/Date format: `conkyrc:100-101`
+* Kernel icon: `conkyrc:91` (change OpenLogos character)
+* Time/Date format: `conkyrc:99-100`
 * Temperature units: `darksky.php:86 and conkyrc:86` (units in `darksky.php` should be "us" or "si", units in `conkyrc` should be "celsius" or "fahrenheit")
 
 ### Autostart:
